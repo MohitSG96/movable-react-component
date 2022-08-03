@@ -11,6 +11,7 @@
 }
 
 .add-box {
+  margin-top: 15px;
   position: relative;
   background-color: #f39c12;
   border: none;
