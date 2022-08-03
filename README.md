@@ -6,13 +6,22 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn install/npm install`
+
+To install react Dependencies.
+
+### `yarn start/npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+    - Click on 'add new box' button to get add new square. By default the square is not selected.
+    - Click on the square to select it.
+    - On keyboard click "W/A/S/D" || "Up Arrow/Down Arrow/Left Arrow/Right Arrow".
+    - To create new box and move it repeat the steps
 
 ### `yarn test`
 
