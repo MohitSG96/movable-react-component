@@ -25,7 +25,12 @@ function App() {
       </div>
 
       {boxes.map((boxNumber) => (
-        <div className="square-box">
+        <div
+          className="square-box"
+          onBlur={() => {
+            selectBox(-1);
+          }}
+        >
           <MovableSquare
             index={boxNumber}
             isSelected={selectedBox === boxNumber}
