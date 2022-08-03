@@ -25,13 +25,15 @@ function App() {
       </div>
 
       {boxes.map((boxNumber) => (
-        <MovableSquare
-          index={boxNumber}
-          isSelected={selectedBox === boxNumber}
-          onSelectBox={() => {
-            selectBox(boxNumber);
-          }}
-        />
+        <div className="square-box">
+          <MovableSquare
+            index={boxNumber}
+            isSelected={selectedBox === boxNumber}
+            onSelectBox={() => {
+              selectBox(boxNumber);
+            }}
+          />
+        </div>
       ))}
     </div>
   );

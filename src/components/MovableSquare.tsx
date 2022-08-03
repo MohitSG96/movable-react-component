@@ -24,23 +24,27 @@ const MovableSquare = ({
     KeyA: false,
     KeyS: false,
     KeyD: false,
+    ArrowUp: false,
+    ArrowDown: false,
+    ArrowLeft: false,
+    ArrowRight: false,
   }));
 
   useEffect(() => {
     console.log("Key Pressed", JSON.stringify(keysPressed));
-    if (keysPressed.KeyW) {
+    if (keysPressed.KeyW || keysPressed.ArrowUp) {
       setUp((up) => up - 10);
     }
 
-    if (keysPressed.KeyS) {
+    if (keysPressed.KeyS || keysPressed.ArrowDown) {
       setUp((up) => up + 10);
     }
 
-    if (keysPressed.KeyA) {
+    if (keysPressed.KeyA || keysPressed.ArrowLeft) {
       setLeft((left) => left - 10);
     }
 
-    if (keysPressed.KeyD) {
+    if (keysPressed.KeyD || keysPressed.ArrowRight) {
       setLeft((left) => left + 10);
     }
   }, [keysPressed]);
@@ -55,7 +59,9 @@ const MovableSquare = ({
     if (!isSelected) {
       return;
     }
-
+    if (!Object.keys(keysPressed).includes(event.code)) {
+      return;
+    }
     // @ts-ignore
     setKeysPressed({ ...keysPressed, [event.code]: true });
   };
@@ -65,22 +71,25 @@ const MovableSquare = ({
     if (!isSelected) {
       return;
     }
+    if (!Object.keys(keysPressed).includes(event.code)) {
+      return;
+    }
 
     // @ts-ignore
     setKeysPressed({ ...keysPressed, [event.code]: false });
   };
 
   return (
-      <div
-        className="box"
-        tabIndex={index}
-        onClick={onSelectBox}
-        onKeyDown={keyDownHandler}
-        onKeyUp={keyUpHandler}
-        style={{...style, zIndex: index}}
-      >
-        <span>{index}</span>
-      </div>
+    <div
+      className="box"
+      tabIndex={index}
+      onClick={onSelectBox}
+      onKeyDown={keyDownHandler}
+      onKeyUp={keyUpHandler}
+      style={{ ...style, zIndex: index }}
+    >
+      <span>{index}</span>
+    </div>
   );
 };
 
